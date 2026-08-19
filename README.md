@@ -48,6 +48,9 @@ To test the tools in the interactive MCP Inspector UI:
 npx @modelcontextprotocol/inspector python -m src.todo_mcp
 ```
 
+**Testing in the Inspector:**
+![MCP Inspector Testing](docs/inspector.png)
+
 ### Connecting to an AI Client
 Add the following to your client's `config.json`:
 ```json
