@@ -1,0 +1,12 @@
+# Ignore local data so it isn't uploaded to GitHub
+todos.json
+
+# Ignore Python compilation files (prevents useless junk from uploading)
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore virtual environments
+venv/
+env/
+.env
