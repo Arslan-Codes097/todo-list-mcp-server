@@ -8,7 +8,6 @@ A minimalistic and functional Model Context Protocol (MCP) server that provides 
 
 ## 🌐 Live Demo & Media
 - **Live Registry Listing:** [Glama MCP Server](#) *(Pending Review)*
-- **Demo Video:** *Coming soon*
 
 ## 📸 Screenshots
 ![MCP Inspector Testing](docs/inspector.png)
