@@ -1,29 +1,55 @@
-# Personal To-Do List MCP Server 📝
+# 📝 Personal To-Do List MCP Server
 
-[![Model Context Protocol](https://img.shields.io/badge/MCP-Server-blue.svg)](https://modelcontextprotocol.io)
-[![Python 3.10+](https://img.shields.io/badge/python-3.10+-brightgreen.svg)](https://python.org)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/)
+[![MCP](https://img.shields.io/badge/MCP-2.0-orange.svg)](https://modelcontextprotocol.io/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-A minimalistic and functional Model Context Protocol (MCP) server that provides AI assistants with a robust local To-Do list manager. 
+A minimalistic and functional Model Context Protocol (MCP) server that provides AI assistants with a robust local To-Do list manager. This server demonstrates how an AI can manage local state and interact with persistent data (CRUD operations) without requiring external APIs or complex databases.
 
-This project follows a professional Python package structure (`src/todo_mcp`).
+## 🌐 Live Demo & Media
+- **Live Registry Listing:** [Glama MCP Server](#) *(Pending Review)*
+- **Demo Video:** *Coming soon*
 
-## ⚡ Features & Capabilities
+## 📸 Screenshots
+![MCP Inspector Testing](docs/inspector.png)
 
-### 🛠️ Tools
-1. **`add_task(task: str)`** - Adds a new task.
-2. **`list_tasks()`** - Returns a formatted list of all tasks.
-3. **`complete_task(task_id: int)`** - Marks a task as completed.
-4. **`delete_task(task_id: int)`** - Permanently removes a task.
+## ✨ Key Features
+- **🤖 Native AI Integration:** Works seamlessly with Claude Desktop, Cursor, and Antigravity.
+- **🛠️ Complete CRUD Operations:** Add, list, complete, and delete tasks.
+- **📊 Real-time Summaries:** Provides read-only resources summarizing pending vs. completed tasks.
+- **🔒 Private Local Storage:** Stores data strictly on your local machine using JSON.
+- **⚙️ Zero Configuration:** Works entirely out of the box with modern Python packaging.
 
-### 📊 Resources
-- **`todo://summary`** - Read-only dashboard summary of tasks.
+## 🛠️ Tech Stack Table
 
-## 💾 Storage
-Data is stored securely in a local `todos.json` file. It is explicitly ignored in `.gitignore` to protect personal data.
+| Category | Technology | Purpose |
+| :--- | :--- | :--- |
+| **Protocol** | Model Context Protocol (MCP) | AI-to-Tool communication standard |
+| **Language** | Python 3.10+ | Core logic and execution |
+| **SDK** | `mcp[cli]` (FastMCP) | Official Anthropic SDK for Python |
+| **Package Manager** | `pip` / `pyproject.toml` | Modern dependency management |
+| **Database** | Local JSON File | Persistent local state storage |
 
-## 📁 Project Structure
+## ⚙️ How It Works
+1. **Tool Invocation:** The AI client sends a JSON-RPC request to the MCP server (e.g., `add_task`).
+2. **Execution:** The Python server parses the local `todos.json` file.
+3. **Modification:** The server updates the JSON file with the new task and saves it.
+4. **Response:** The server returns a success confirmation back to the AI client.
+
+## 🏗️ Project Architecture
+```mermaid
+graph LR
+    A[AI Assistant] <-->|JSON-RPC via stdio| B[Todo MCP Server]
+    B -->|Read/Write| C[(todos.json)]
+    B --> D[Tools: add, list, delete, complete]
+    B --> E[Resources: todo://summary]
+```
+
+## 📂 Project Structure
 ```text
 ├── docs/                      # Learning outcomes and documentation
+│   ├── inspector.png
+│   └── resend-experience.md
 ├── src/
 │   └── todo_mcp/              # Core MCP server package
 │       ├── __init__.py
@@ -34,11 +60,17 @@ Data is stored securely in a local `todos.json` file. It is explicitly ignored i
 └── README.md
 ```
 
-## 🚀 Quickstart
+## 💻 Local Setup & Installation
+
+### Prerequisites
+- Python 3.10 or higher
+- Node.js (for `npx` if using the Inspector)
 
 ### Installation
-Because this project uses the modern `pyproject.toml` standard, you can install it locally using `pip`:
+Clone the repository and install it locally using `pip`:
 ```bash
+git clone https://github.com/Arslan-Codes097/todo-list-mcp-server.git
+cd todo-list-mcp-server
 pip install .
 ```
 
@@ -48,19 +80,24 @@ To test the tools in the interactive MCP Inspector UI:
 npx @modelcontextprotocol/inspector python -m src.todo_mcp
 ```
 
-**Testing in the Inspector:**
-![MCP Inspector Testing](docs/inspector.png)
-
 ### Connecting to an AI Client
-Add the following to your client's `config.json`:
+Add the following to your client's `config.json` to run the server directly:
 ```json
 {
   "mcpServers": {
-    "todo-manager": {
+    "todo-mcp": {
       "command": "python",
-      "args": ["-m", "src.todo_mcp"]
+      "args": ["-m", "src.todo_mcp"],
+      "env": {
+        "PYTHONPATH": "/absolute/path/to/your/todo-list-mcp-server"
+      }
     }
   }
 }
 ```
-*(Ensure you run this from the root of the project).*
+
+## 👤 Author & Credits
+**Arslan** 
+- GitHub: [@Arslan-Codes097](https://github.com/Arslan-Codes097)
+
+*Built as a hands-on exploration of the Model Context Protocol.*
