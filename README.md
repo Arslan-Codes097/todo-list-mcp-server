@@ -80,17 +80,22 @@ To test the tools in the interactive MCP Inspector UI:
 npx @modelcontextprotocol/inspector python -m src.todo_mcp
 ```
 
-### Connecting to an AI Client
-Add the following to your client's `config.json` to run the server directly:
+### Connecting to an AI Client (Zero-Install)
+The easiest way to use this server is via `uvx`. It will automatically download and run the server without you needing to clone the repository manually.
+
+Add the following to your client's `config.json`:
 ```json
 {
   "mcpServers": {
     "todo-mcp": {
-      "command": "python",
-      "args": ["-m", "src.todo_mcp"],
-      "env": {
-        "PYTHONPATH": "/absolute/path/to/your/todo-list-mcp-server"
-      }
+      "command": "uvx",
+      "args": [
+        "--from",
+        "git+https://github.com/Arslan-Codes097/todo-list-mcp-server.git",
+        "python",
+        "-m",
+        "src.todo_mcp"
+      ]
     }
   }
 }
