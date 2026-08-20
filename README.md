@@ -7,7 +7,7 @@
 A minimalistic and functional Model Context Protocol (MCP) server that provides AI assistants with a robust local To-Do list manager. This server demonstrates how an AI can manage local state and interact with persistent data (CRUD operations) without requiring external APIs or complex databases.
 
 ## 🌐 Live Demo & Media
-- **Live Registry Listing:** [Glama MCP Server](#) *(Pending Review)*
+- **Live Registry Listing:** [Glama MCP Server](https://glama.ai/mcp/servers/Arslan-Codes097/todo-list-mcp-server)
 
 ## 📸 Screenshots
 ![MCP Inspector Testing](docs/inspector.png)
