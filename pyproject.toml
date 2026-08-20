@@ -5,7 +5,7 @@ description = "A minimalist Personal To-Do List MCP Server"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
-    "mcp[cli]>=1.0.0",
+    "mcp[cli]>=1.0.0,<2.0.0",
 ]
 
 [build-system]
