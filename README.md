@@ -76,7 +76,7 @@ pip install .
 ### Running Locally (Inspector)
 To test the tools in the interactive MCP Inspector UI:
 ```bash
-npx @modelcontextprotocol/inspector python -m src.todo_mcp
+npx @modelcontextprotocol/inspector python -m todo_mcp
 ```
 
 ### Connecting to an AI Client (Zero-Install)
@@ -93,7 +93,7 @@ Add the following to your client's `config.json`:
         "git+https://github.com/Arslan-Codes097/todo-list-mcp-server.git",
         "python",
         "-m",
-        "src.todo_mcp"
+        "todo_mcp"
       ]
     }
   }
